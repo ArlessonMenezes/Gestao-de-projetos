@@ -8,6 +8,12 @@ router.get('/', (req, res) => {
     res.render('index');
 })
 
+router.get('/admin', (req, res) => {
+    User.findOne().then(user => {
+        res.render('admin', { user: user.id })
+    })
+})
+
 router.post('/users', (req, res) => {
     let name = req.body.name;
     let email = req.body.email;
@@ -70,10 +76,11 @@ router.post('/auth', (req, res) => {
             let correct = bcrypt.compareSync(password, user.password)
             
                 if(correct) {
+                    
 
                     User.findAll({ raw: true }).then(users => {
                         res.status(200);
-                        res.render('user', { users: users })
+                        res.render('admin', { users: users })
                     }).catch(() => {
                         res.status(404);
                         res.send('<script>alert("Senha inválida!"); window.location.href = "/"</script>');

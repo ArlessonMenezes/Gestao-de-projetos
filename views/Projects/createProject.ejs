@@ -1,0 +1,43 @@
+<%- include('../partials/header')%>
+<%- include('../partials/navbar')%>
+<style>
+    body{
+        background-color: rgb(250, 248, 248);
+    }
+</style>
+<body>
+    <hr>
+    <div class="container mr-2">
+    <div class="col-10">
+        <div class="card bg-dark text-white">
+            <div class="card-header">
+                <h3>Criar Projeto</h3>
+                <div style="width: 100%; border: 1px solid #fff;"></div>
+            </div>
+            <div class="card-body">
+                <form action="/create-project" method="post">
+                    <label for="name">Nome</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="nome"><br>
+                    <label for="start">Data de inicio</label>
+                    <input class="form-control" type="date" name="start" id="start"><br>
+                    <label for="end">Data de término</label>
+                    <input class="form-control" type="date" name="end" id="end"><br>
+                    <label for="theme">Tema</label>
+                    <input class="form-control" type="text" name="theme" id="theme" placeholder="tema"><br>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <button class="btn btn-light">Criar</button>
+                        </div>
+                        <div>
+                            <a class="btn btn-light" href="/projects">Voltar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr>
+
+</body>
+</html>
